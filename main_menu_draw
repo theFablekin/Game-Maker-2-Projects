@@ -1,0 +1,24 @@
+///  Main Menu Draw Event
+//  Set draw variables
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_font(fntMain);
+//  Draw buttons
+for (var m = 0; m < mainCount; m++)
+{
+	if (m == mainSelect)
+	{  //  Selected
+		draw_set_color(c_ltgray);
+	}
+	else
+	{  //  Not selected
+		draw_set_color(c_gray);
+	}
+	draw_rectangle(mainX1, mainY1[m], mainX2, mainY2[m], false);
+  //  Draw text on button
+  //  Text color
+	draw_set_color(c_black);
+	draw_text(mainCenterX, mainCenterY[m], mainText[m]);
+}
+//  Reset Draw Variables
+draw_reset();
