@@ -1,0 +1,34 @@
+///  Main Menu Object Step Event
+//	Control Menu
+//  Keyboard + Controller
+//  Move selection up and down
+if (global.inputUp)		mainSelect--;
+if (global.inputDown)	mainSelect++;
+//  Loop selection at limits
+if (mainSelect < 0)						menuSelect	=	mainItemcount - 1;
+if (mainSelect > mainItemcount - 1)		menuSelect	=	0;
+//  Confirm selection
+if (global.inputOk)
+{  //  Run function if it exists
+	if (mainFunction[mainSelect] != -1)
+	{
+		mainFunction[mainSelect]();
+	}
+}
+
+//	Mouse control
+  //  Mouse control below Keyboard - mouse selection overwrites keyboard
+for (var n = 0; n < mainItemcount; n++)
+{  //  Check if cursor is on button
+	if point_in_rectangle(mouse_x, mouse_y, mainX1, mainY1[n], mainX2, mainY2[n])
+	{  //  Set selection to cursor position
+		mainSelect = n;
+		if mouse_check_button_pressed(mb_left)
+		{  //  Confirm selection (but only if cursor is still on button)
+			if (mainFunction[n] != -1)
+			{
+				script_execute(mainFunction[n]);
+			}
+		}
+	}
+}
