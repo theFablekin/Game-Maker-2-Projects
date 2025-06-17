@@ -1,0 +1,37 @@
+///  Main Menu Object Create Event
+//   Initialize variables
+  //  Button Text
+menuText		=	["Continue","New Game","Load Game","Endless","Options","Exit"];
+  //  Button Function (-1 denotes no function)
+menuFunction	=	[-1,game_start,-1,-1,option_toggle,game_end];
+  //  Number of menu items
+menuCount	=	array_length(menuText);
+  //  Selected menu item
+menuSelect		=	0;
+
+//  Button position
+//  Button width (pixels)
+buttonWidth		=	120;
+//  Button height (pixels)
+buttonHeight	=	60;
+//  Menu array start position (relative to screen size)
+menuStartX		=	camera_get_view_width(view_camera[0])/4;
+menuStartY		=	camera_get_view_height(view_camera[0])/3;
+//  Distance between buttons
+menuOffset		=	10;
+
+//  Menu button corner positions
+menuX1			=	menuStartX;
+menuX2			=	menuX1 + buttonWidth;
+menuY1			=	array_create(menuitemCount);
+menuY2			=	array_create(menuitemCount);
+//  Menu button center positions (for text)
+menuCenterX		=	menuX1 + buttonWidth/2;
+menuCenterY		=	array_create(menuitemCount);
+//  Calculate array positions
+for (var i = 0; i < menuitemCount; i++)
+{
+	array_set(menuY1, i, menuStartY + (buttonHeight + menuOffset)*i);
+	array_set(menuY2, i, menuStartY + buttonHeight + (buttonHeight + menuOffset)*i);
+	array_set(menuCenterY, i, menuY1[i] + buttonHeight/2);
+}
