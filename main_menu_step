@@ -3,10 +3,10 @@
 //  Keyboard + Controller
 //  Move selection up and down
 if (global.inputUp)		mainSelect--;
-if (global.inputDown)	mainSelect++;
+if (global.inputDown)		mainSelect++;
 //  Loop selection at limits
-if (mainSelect < 0)						menuSelect	=	mainItemcount - 1;
-if (mainSelect > mainItemcount - 1)		menuSelect	=	0;
+if (mainSelect < 0)			menuSelect	=	mainItemcount - 1;
+if (mainSelect > mainCount - 1)		menuSelect	=	0;
 //  Confirm selection
 if (global.inputOk)
 {  //  Run function if it exists
@@ -18,7 +18,7 @@ if (global.inputOk)
 
 //	Mouse control
   //  Mouse control below Keyboard - mouse selection overwrites keyboard
-for (var n = 0; n < mainItemcount; n++)
+for (var n = 0; n < mainCount; n++)
 {  //  Check if cursor is on button
 	if point_in_rectangle(mouse_x, mouse_y, mainX1, mainY1[n], mainX2, mainY2[n])
 	{  //  Set selection to cursor position
