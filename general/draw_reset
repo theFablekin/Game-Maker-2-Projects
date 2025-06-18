@@ -1,0 +1,8 @@
+///  Reset draw properties
+//  Put this at the end of draw events
+//  To make sure all draw properties are properly reset
+function draw_reset(){
+draw_set_color(c_white);    //  Reset color
+draw_set_halign(fa_left);   //  Reset text alignments
+draw_set_valign(fa_top);
+}
