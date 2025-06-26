@@ -1,0 +1,10 @@
+// Camera freemove script
+function scrCamprioFreemove(){
+//  Get input
+var _hInput = keyboard_check(global.cameraRight) - keyboard_check(global.cameraLeft);
+var _vInput = keyboard_check(global.cameraDown) - keyboard_check(global.cameraUp);
+
+//  Move camera with input
+x += 5*_hInput;
+y += 5*_vInput;
+}  //  Script end
