@@ -1,0 +1,9 @@
+// Camera precise follow script
+function scrCameraPrecfollow(_follow){
+//  Precisely follow an object or instance
+if (instance_exists(_follow))
+{
+	x = _follow.x;
+	y = _follow.y;
+}
+}  //  Script End
