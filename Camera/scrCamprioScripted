@@ -1,0 +1,12 @@
+// Camera scripted priority state
+function scrCamprioScripted(){
+switch (camStatus)
+{
+  case camState.station:    scrCameraStatic(xStatpos, yStatpos)  break;  //  Stay in one place
+	case camState.follow:     scrCameraFollow()                    break;  //  Follow an object
+	case camState.hfollow:    scrCameraHfollow(yStatpos)           break;  //  Follow horizontally
+	case camState.vfollow:    scrCameraVfollow(xStatpos)           break;  //  Follow vertically
+	case camState.precfollow: scrCameraPrecfollow(follow)          break;  //  
+}
+
+}  //  Script end
