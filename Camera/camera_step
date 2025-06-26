@@ -1,0 +1,40 @@
+//  Camera object step event
+if (global.pause = false)		// Pause Begin
+{
+// Camera priority status switch state
+switch (camPrioStatus)
+{
+	case camPrioState.scripted:	scrCamprioScripted()			    break;  //  Scripted state
+	case camPrioState.freemove:	scrCamprioFreemove()			    break;  //  Free move state
+	case camPrioState.deathcam: scrCameraPrecfollow(oPlayer)	break;  //  Precise follow state
+}
+// Player death
+if (global.playerHp <= 0)
+{
+	camPrioStatus	=	camPrioState.deathcam;
+}
+// Free camera toggle
+else if (global.freecam = true)
+{
+	camPrioStatus	=	camPrioState.freemove;
+}
+// Otherwise scripted movement
+else
+{
+	camPrioStatus	=	camPrioState.scripted;
+}
+
+// Background
+/// Back background layer (sticks to camera)
+layer_x("lyrBkgBack", x - viewWHalf);
+layer_y("lyrBkgBack", y - viewHHalf);
+
+// Screen shake
+x	+=	random_range(-shakeRemain, shakeRemain);
+y	+=	random_range(-shakeRemain, shakeRemain);
+shakeRemain = max(0,shakeRemain-((1/shakeLength)*shakeMagnitude));
+flashRemain = max(0,flashRemain-((1/flashLength)*flashIntensity));
+
+// Set camera position to camera object
+camera_set_view_pos(cam, round(x) - viewWHalf, round(y) - viewHHalf);
+}								// Pause end
