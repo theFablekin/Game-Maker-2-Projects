@@ -1,0 +1,43 @@
+//  Camera object Create Event
+//  Set up variables
+cam  =  view_camera[0];  //  The camera to move
+//  Camera height and width
+camW  =  camera_get_view_width(cam);
+camH  =  camera_get_view_height(cam);
+//  Camera center
+viewWHalf  =  camW/2;
+viewHHalf  =	camH/2;
+// Initialize movement variables
+xTo				=  xstart;
+yTo				=  ystart;
+follow		=  oPlayer;
+// Static position variables
+xStatpos		=	0;
+yStatpos		=	0;
+// Screen shake variables
+shakeRemain		=	0;
+shakeLength		=	0;
+shakeMagnitude	=	0;
+// Screen flash variables
+flashRemain		=	0;
+flashLength		=	0;
+flashIntensity	=	0;
+flashColour		=	c_red;
+// Enumerate camera priority states
+enum camPrioState
+{
+	scripted,
+	freemove,
+	deathcam
+}
+camPrioStatus	=	camPrioState.scripted;
+// Enumerate camera scripted states
+enum camState
+{
+	station,
+	follow,
+	vfollow,
+	hfollow,
+	precfollow,
+}
+camStatus		=	camState.follow;
