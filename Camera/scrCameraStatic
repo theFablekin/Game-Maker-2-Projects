@@ -1,0 +1,9 @@
+//  Static camera script
+function scrCameraStatic(_xPos, _yPos){
+// Move Camera to target loc
+if (x != _xPos) || (y != _yPos)
+{
+	x += round((_xPos - x) / 10);
+	y += round((_yPos - y) / 10);
+}
+}  //  Script end
