@@ -1,0 +1,11 @@
+//  Camera Vertical Follow Script
+function scrCameraVfollow(_xFix){
+if instance_exists(oPlayer)
+{
+	xTo = _xFix;
+	yTo = oPlayer.y;
+}
+// Update object position
+x += round((xTo - x) / 10);
+y += round((yTo - y) / 10);
+}
