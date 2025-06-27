@@ -1,0 +1,12 @@
+//  Camera Player Follow script
+function scrCameraFollow(){
+//  Check if player object exists (safety)
+if instance_exists(oPlayer)
+{  //  Update target position
+	xTo = oPlayer.x;
+	yTo = oPlayer.y;
+}
+// Move to target position incrementally
+x += round((xTo - x) / 10);
+y += round((yTo - y) / 10);
+}  //  Script end
