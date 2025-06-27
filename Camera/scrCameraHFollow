@@ -1,0 +1,12 @@
+//  Camera horizontal follow script
+//  _yFix = Y coordinate to lock the camera to
+function scrCameraHfollow(_yFix){
+if instance_exists(oPlayer)
+{
+	xTo = oPlayer.x;
+	yTo = _yFix;
+}
+// Update object position
+x += round((xTo - x) / 10);
+y += round((yTo - y) / 10);
+}
